@@ -1,0 +1,10 @@
+---
+- name: Run the installer
+  become: true
+  become_method: sudo
+  shell: "/tmp/{{ screenconnect_pkg.stdout }}/install.sh"
+  register: output
+
+- debug:
+    var: output
+...

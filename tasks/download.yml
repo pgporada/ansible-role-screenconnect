@@ -1,0 +1,36 @@
+---
+- name: Get URL to download latest version of screenconnect
+  shell: curl -s https://www.connectwise.com/software/control/download-archive | grep 'https' | grep '\.tar\.gz' | head -n1 | awk -F'"' '{print $2}'
+  register: screenconnect_download_url
+  changed_when: false
+  args:
+    warn: false
+
+# - debug:
+#     var: screenconnect_download_url
+
+- name: Get tarball name
+  shell: echo {{ screenconnect_download_url.stdout }} | awk -F'/' '{print $4}'
+  register: screenconnect_tarball
+  changed_when: false
+
+- name: Strip tarball extension
+  shell: echo {{ screenconnect_tarball.stdout }} | sed 's/Release.tar.gz/Install/'
+  register: screenconnect_pkg
+  changed_when: false
+
+# - debug:
+#     var: screenconnect_pkg
+
+- name: "Download the latest version of screenconnect to /tmp/{{ screenconnect_tarball.stdout }}"
+  get_url:
+    url: "{{ screenconnect_download_url.stdout }}"
+    dest: "/tmp/{{ screenconnect_tarball.stdout }}"
+  register: new_archive
+
+- name: "Explode the tarball into /tmp/{{ screenconnect_pkg.stdout }}"
+  unarchive:
+    src: "/tmp/{{ screenconnect_tarball.stdout }}"
+    dest: "/tmp/{{ screenconnect_pkg.stdout }}"
+  when: new_archive is changed
+...
