@@ -1,4 +1,8 @@
 ---
 - include: download.yml
 - include: install.yml
+
+# Handle SELinux
+- include: configure-RedHat.yml
+  when: ansible_os_family == 'RedHat'
 ...

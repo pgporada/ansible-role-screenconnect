@@ -1,6 +1,35 @@
 ---
 - hosts: all
   gather_facts: true
+  vars:
+    apache_listen_ip: "*"
+    apache_listen_port: 80
+    apache_listen_port_ssl: 443
+    apache_create_vhosts: true
+    apache_vhosts_filename: "vhosts.conf"
+    apache_vhosts_template: "vhosts.conf.j2"
+    apache_remove_default_vhost: true
+    apache_state: started
+    apache_packages_state: latest
+    apache_mods_enabled:
+      - rewrite.load
+      - ssl.load
+      - proxy.load
+      - proxy_http.load
+    apache_mods_disabled: []
+    apache_vhosts:
+      - servername: "example.screenconnect"
+        serveralias: "192.168.33.15, 127.0.0.1"
+        documentroot: "/var/www/html"
+        extra_parameters: |
+            RewriteEngine On
+            ProxyRequests Off
+            ProxyPreserveHost On
+            SetEnv proxy-initial-not-pooled 1
+            ProxyPass / http://127.0.0.1:8040/ timeout=31536000
+            ProxyPassReverse / http://127.0.0.1:8040/
+
   roles:
     - ansible-role-screenconnect
+    - geerlingguy.apache
 ...

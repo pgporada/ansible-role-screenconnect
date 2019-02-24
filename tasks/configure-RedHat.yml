@@ -1,0 +1,30 @@
+---
+- name: Ensure packages are installed
+  become: true
+  become_method: sudo
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libselinux-python
+    - policycoreutils-python
+
+- name: SELinux booleans
+  become: true
+  become_method: sudo
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+  when: ansible_selinux and ansible_selinux.status != "disabled"
+
+- name: SELinux port re-map
+  become: true
+  become_method: sudo
+  seport:
+    ports: 8040
+    proto: tcp
+    setype: http_port_t
+    state: present
+  when: ansible_selinux and ansible_selinux.status != "disabled"
+...

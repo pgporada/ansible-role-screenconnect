@@ -31,6 +31,6 @@
 - name: "Explode the tarball into /tmp/{{ screenconnect_pkg.stdout }}"
   unarchive:
     src: "/tmp/{{ screenconnect_tarball.stdout }}"
-    dest: "/tmp/{{ screenconnect_pkg.stdout }}"
+    dest: "/tmp/"
   when: new_archive is changed
 ...

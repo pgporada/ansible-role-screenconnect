@@ -4,6 +4,8 @@
 # Overview: ansible-role-terraform
 This role will download and install the latest Linux version of [ConnectWise ScreenConnect](https://www.connectwise.com/software/control/download).
 
+![Working install of ScreenConnect behind an Apache reverse proxy](screenconnect.png)
+
 - - - -
 # Variables
 
@@ -26,6 +28,10 @@ Before submitting a PR, please create a test and run it through test-kitchen. Yo
     bundle exec kitchen create
     bundle exec kitchen converge
     bundle exec kitchen verify
+
+Open your web browser and navigate to http://192.168.33.15 to complete the ScreenConnect setup
+
+    # Clean up after ourselves
     bundle exec kitchen destroy
 
 - - - -
