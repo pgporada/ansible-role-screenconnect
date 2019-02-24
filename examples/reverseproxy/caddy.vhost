@@ -1,0 +1,13 @@
+screenconnect.example.com {
+    root /var/www/screenconnect/
+    tls admin@example.com
+    redir {
+        if {scheme} not https
+        to https://screenconnect.example.com{uri}
+    }
+
+	# This might need some work still
+    proxy / 127.0.0.1:8040 {
+        transparent
+    }
+}

@@ -1,0 +1,10 @@
+ProxyRequests Off
+ProxyPreserveHost On
+
+# ACME
+ProxyPass /.well-known/acme-challenge !
+
+# ConnectWise ScreenConnect
+SetEnv proxy-initial-not-pooled 1
+ProxyPass / http://127.0.0.1:8040/ timeout=31536000
+ProxyPassReverse / http://127.0.0.1:8040/
