@@ -18,7 +18,7 @@ None
 
 1. Via the included playbook as `ansible-playbook local_playbook.yml -K`
 1. As part of another playbook `pgporada.screenconnect`
-1. You will want to configure this behind a reverse proxy such as Apache, Nginx, or Caddy. An example reverse proxy file is included in [examples/](examples/reverseproxy/)
+1. You will want to configure this behind a reverse proxy such as Apache, Nginx, or Caddy. An example reverse proxy file is included in [examples/](examples/reverseproxy/) and a working example can be found in the [tests.](test/integration/default/default.yml)
 
 - - - -
 # How to hack away at this role
