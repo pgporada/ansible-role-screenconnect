@@ -5,13 +5,11 @@
 This role will download and install the latest Linux version of [ConnectWise ScreenConnect](https://www.connectwise.com/software/control/download).
 
 - - - -
-
 # Variables
 
 None
 
 - - - -
-
 # How to use this role
 
 1. Via the included playbook as `ansible-playbook local_playbook.yml -K`
@@ -35,7 +33,6 @@ Before submitting a PR, please create a test and run it through test-kitchen. Yo
 [Derrick Morgan - The Conqueror](https://www.youtube.com/watch?v=OVmuRgn0LRI)
 
 - - - -
-
 # Copyright and Author Info
 
 (C) [Phil Porada](https://philporada.com) 2019 - philporada@gmail.com
