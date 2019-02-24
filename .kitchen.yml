@@ -28,6 +28,5 @@ suites:
   - name: default
 
 transport:
-  forward_agent: false
-  name: rsync
+  name: ssh
 ...
