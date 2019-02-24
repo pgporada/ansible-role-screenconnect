@@ -6,6 +6,7 @@ galaxy_info:
   description: Installs and configures ConnectWise Screenconnect
   company: MI Tall Guy
   license: GPLv2.0
+  role_name: screenconnect
   min_ansible_version: 2.7
   platforms:
     - name: EL
