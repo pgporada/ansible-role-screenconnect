@@ -1,9 +1,11 @@
+[![Donate to my project with Paypal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/pgporada)]
 [![pgporada.screenconnect](https://img.shields.io/badge/role-pgporada.screenconnect-blue.svg)](https://galaxy.ansible.com/pgporada/screenconnect)
 [![License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg)](LICENSE)
 
 # Overview: ansible-role-screenconnect
 This role will download and install the latest Linux version of [ConnectWise ScreenConnect](https://www.connectwise.com/software/control/download).
 
+If this helps you out, consider throwing a few dollars in the beer bucket up top.
 ![Working install of ScreenConnect behind an Apache reverse proxy](screenconnect.png)
 
 - - - -
