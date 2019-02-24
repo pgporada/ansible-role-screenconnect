@@ -1,7 +1,7 @@
 [![pgporada.screenconnect](https://img.shields.io/badge/role-pgporada.screenconnect-blue.svg)](https://galaxy.ansible.com/pgporada/screenconnect)
 [![License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg)](LICENSE)
 
-# Overview: ansible-role-terraform
+# Overview: ansible-role-screenconnect
 This role will download and install the latest Linux version of [ConnectWise ScreenConnect](https://www.connectwise.com/software/control/download).
 
 ![Working install of ScreenConnect behind an Apache reverse proxy](screenconnect.png)
@@ -22,7 +22,6 @@ None
 # How to hack away at this role
 Before submitting a PR, please create a test and run it through test-kitchen. You will need to have at least Ruby 2.x, probably through rbenv, and Bundler.
 
-    # This will run your terraform update through the test system
     bundle update
     bundle install
     bundle exec kitchen create
